@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="zool.domain.dao.oasqlserver.ManageMapper">
+
+    <select id="getManageClass" parameterType="int" resultType="java.util.Map">
+        SELECT m.id,m.username,c1.id AS class1,c1.classname AS class1name,c2.id AS class2,c2.classname AS class2name,m.manager
+		FROM manage m
+		LEFT JOIN class_1 c1 ON m.admin=c1.id
+		LEFT JOIN class_2 c2 ON m.class2=c2.id
+		WHERE m.id=#{id}
+    </select>
+
+</mapper>

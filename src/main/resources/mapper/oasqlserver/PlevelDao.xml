@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="zool.domain.dao.oasqlserver.PlevelMapper">
+
+    <select id="oldPlevel" parameterType="int" resultType="string">
+        SELECT ManagePostType FROM personnel WHERE uid = #{id}
+    </select>
+
+
+    <select id="getBasicInfoDto" parameterType="int" resultType="zool.domain.dto.plevel.PersonnelBasicInfoDto">
+        SELECT
+          m.username AS name,
+          p.sex AS sex,
+          p.idcard AS idCard,
+          p.joindate AS joinTime,
+          m.admin AS class1,
+          m.class2 AS class2,
+          p.ManagePostType AS oldPlevel
+        FROM manage m LEFT JOIN personnel p ON p.uid = m.id WHERE m.id = #{id}
+    </select>
+
+    <select id="getMGYueJieDanSize" parameterType="zool.domain.dto.plevel.MGYueJieDanParamDto" resultType="int">
+        SELECT COUNT (*) AS number
+        FROM ReportMeiGongAchievement r
+        LEFT JOIN ReportMeiGongDir d
+        ON r.DirID = d.ID
+        WHERE r.Type = 1
+        AND r.UserID = #{userId}
+        AND d.SalaryYearMonth
+        BETWEEN #{sDate}
+        AND #{eDate}
+    </select>
+
+    <select id="getMonthlyMGYueJieDanSize" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT (*) AS number
+        FROM ReportMeiGongAchievement r
+        LEFT JOIN ReportMeiGongDir d
+        ON r.DirID = d.ID
+        WHERE r.Type = 1
+        AND r.UserID = #{userId}
+        AND d.SalaryYearMonth = #{monthly}
+    </select>
+
+    <select id="getCustomerCount" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT (DISTINCT r.CustomID) AS customerCount
+        FROM ReportMeiGongAchievement r
+        LEFT JOIN ReportMeiGongDir d
+        ON r.DirID = d.ID
+        WHERE r.Type = 1
+        AND r.UserID = #{userId}
+        AND d.SalaryYearMonth = #{monthly}
+    </select>
+
+</mapper>
