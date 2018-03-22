@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zool.domain.dao.oasqlserver.WwCostomerMapper">
+
+    <select id="getWwfkRenewalRate" parameterType="zool.domain.dto.wwCustomer.WwkfMonthDto" resultType="zool.domain.dto.wwCustomer.WwKfRenewalRateDto">
+        SELECT kfid,fenmu,fenzi,tuikuan,yue
+        FROM xfl_wwkf_month(#{sDate},#{eDate})
+    </select>
+
+</mapper>
