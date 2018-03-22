@@ -17,12 +17,12 @@ public class WwKfRenewalRateDto {
     /**
      * 分母
      */
-    private int fenmu;
+    private float fenmu;
 
     /**
      * 分子
      */
-    private int fenzi;
+    private float fenzi;
 
     /**
      * 退款
@@ -33,5 +33,10 @@ public class WwKfRenewalRateDto {
      * 月份
      */
     private String yue;
+
+    /**
+     * 续费率
+     */
+    private String xfl;
 
 }
