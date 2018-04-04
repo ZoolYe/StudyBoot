@@ -104,6 +104,13 @@
 			<version>1.0.31</version>
 		</dependency>
 
+		<!--添加对redis的支持-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 public class WwKfRenewalRateDto {
 
-
     /**
      * 旺旺客服id
      */

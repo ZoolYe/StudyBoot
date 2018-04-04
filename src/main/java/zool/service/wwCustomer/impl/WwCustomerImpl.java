@@ -54,7 +54,7 @@ public class WwCustomerImpl implements WwCustomerService {
 
             if(fenmu!=0 && fenzi!=0){
                 //获取续费率,fenzi是已续fenmu是未续
-                String xfl = numberFormat.format((float)fenzi / (float) fenmu*100);
+                String xfl = numberFormat.format(fenzi / fenmu*100);
                 rateDto.setXfl(xfl);
             }else if(fenzi==0){
                 rateDto.setXfl("0");
