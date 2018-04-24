@@ -6,7 +6,7 @@ public class RedisTest {
 
     public static void main(String args[]){
 
-        Jedis jedis = new Jedis("localhost");
+        Jedis jedis = getJedis("");
         jedis.set("username","zoolye");
         jedis.set("email","www.iphone@foxmail.com");
 
@@ -15,6 +15,15 @@ public class RedisTest {
 
         System.out.println(name+" : "+email);
 
+    }
+
+    /**
+     * 连接Jedis，传入连接的Jedis地址，如果参数为空连接默认的localhost
+     * @param ip 地址
+     * @return Jedis 实例
+     */
+    public static Jedis getJedis(String ip) {
+        return "".equals(ip) || ip == null ? new Jedis("localhost") : new Jedis(ip);
     }
 
 }
