@@ -38,7 +38,7 @@ public class ComplaintController {
         return RD.success(paramDto);
     }
 
-    @RequestMapping("details")
+    @RequestMapping("/details")
     public RD detailsComplaint(int id){
         return complaint.detailsComplaint(id);
     }

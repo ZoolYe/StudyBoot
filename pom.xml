@@ -117,7 +117,13 @@
 			<version>5.0.4.RELEASE</version>
 		</dependency>
 
-	</dependencies>
+		<!--添加对aop的支持-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+    </dependencies>
 
 	<build>
 		<plugins>
