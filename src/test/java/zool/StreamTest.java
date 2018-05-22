@@ -2,6 +2,8 @@ package zool;
 
 import org.assertj.core.util.Lists;
 import org.junit.Test;
+import org.springframework.web.client.RestTemplate;
+import sun.java2d.cmm.Profile;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -25,6 +27,12 @@ public class StreamTest {
     public void test1(){
         List<Integer> nums = Lists.newArrayList(1,null,3,4,null,6);
         long l = nums.stream().filter(num -> num != null).limit(2).count();
+    }
+
+    @Test
+    public Profile fetch(String id){
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject("http://www.baidu.com",Profile.class,id);
     }
 
 }
