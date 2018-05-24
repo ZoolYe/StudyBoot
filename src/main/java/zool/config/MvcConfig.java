@@ -19,15 +19,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter{
         registry.addInterceptor(new DebugInterceptor()).excludePathPatterns("/sys/**");
     }
 
-    /*配置视图*/
-    @Bean
-    public ViewResolver getViewResolver(){
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/resources/templates/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }
-
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
     }
