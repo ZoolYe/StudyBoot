@@ -2,6 +2,7 @@ package zool.api.complaint;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +35,9 @@ public class ComplaintController {
      * @return
      */
     @RequestMapping("/add")
+    @Transactional(rollbackFor = Exception.class)
     public RD addComplaint(@Validated AddComplaintParamDto paramDto, BindingResult bindingResult){
+
         return RD.success(paramDto);
     }
 

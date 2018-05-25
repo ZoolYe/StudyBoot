@@ -26,25 +26,29 @@ public class HttpAspect {
     public void doBefore(JoinPoint joinPoint) throws Throwable{
 
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
+        if(attributes!=null){
+            HttpServletRequest request = attributes.getRequest();
+            /*URI*/
+            logger.info("url={}",request.getRequestURI());
+            /*method*/
+            logger.info("method={}",request.getMethod());
+            /*ip*/
+            logger.info("ip={}",request.getRemoteAddr());
+            /*类方法*/
+            logger.info("class={} and method name={}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
+            /*参数*/
+            logger.info("参数={}",joinPoint.getArgs());
+        }
 
-        /*URI*/
-        logger.info("url={}",request.getRequestURI());
-        /*method*/
-        logger.info("method={}",request.getMethod());
-        /*ip*/
-        logger.info("ip={}",request.getRemoteAddr());
-        /*类方法*/
-        logger.info("class={} and method name={}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
-        /*参数*/
-        logger.info("参数={}",joinPoint.getArgs());
     }
 
     @After("log()")
     public void doAfter(){
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-        logger.info("url = {} end of execution",request.getRequestURL());
+        if (attributes!=null){
+            HttpServletRequest request = attributes.getRequest();
+            logger.info("url = {} end of execution",request.getRequestURL());
+        }
     }
 
     @AfterReturning(returning = "object",pointcut = "log()")
