@@ -2,7 +2,9 @@ package zool.domain.dao.oasqlserver;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import zool.domain.dto.manage.UserDto;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,5 +22,7 @@ public interface ManageMapper {
      * @return
      */
     Map<String,Object> getManageClass(@Param("id")int id);
+
+    UserDto getUserInfo(@Param("username") String username);
 
 }

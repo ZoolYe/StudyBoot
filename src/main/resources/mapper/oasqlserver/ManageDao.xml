@@ -12,4 +12,8 @@
 		WHERE m.id=#{id}
     </select>
 
+	<select id="getUserInfo" resultType="zool.domain.dto.manage.UserDto">
+		select * from manage where username = #{username}
+	</select>
+
 </mapper>

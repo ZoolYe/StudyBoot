@@ -3,8 +3,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="zool.domain.dao.oapg.ComplaintMapper">
 
-    <select id="detailsComplaint" parameterType="integer" resultType="java.util.Map">
+    <select id="detailsComplaint" parameterType="integer" resultType="zool.domain.dto.complaint.ComplaintVo">
         SELECT id,personnelId,personnel,reason,filepath,remarks FROM complaint WHERE id = #{id}
     </select>
+
+    <select id="getComplaint" resultType="zool.domain.dto.complaint.GetComplaintDto">
+        select * from complaint where personnelid = #{userId}
+    </select>
+
+
+    <insert id="addComplaint" parameterType="zool.domain.dto.complaint.AddComplaintParamDto">
+        insert into complaint(personnelid,personnel,reason,remarks)
+        values (#{paramDto.personnelId},#{paramDto.personnel},#{paramDto.reason},#{paramDto.remarks})
+    </insert>
 
 </mapper>

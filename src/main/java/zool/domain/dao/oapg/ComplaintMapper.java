@@ -1,12 +1,19 @@
 package zool.domain.dao.oapg;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import zool.domain.dto.complaint.AddComplaintParamDto;
+import zool.domain.dto.complaint.ComplaintVo;
+import zool.domain.dto.complaint.GetComplaintDto;
 
-import java.util.Map;
+import java.util.List;
 
 @Repository
 public interface ComplaintMapper {
 
-    Map<String,Object> detailsComplaint(int id);
+    ComplaintVo detailsComplaint(int id);
 
+    int addComplaint(@Param("paramDto") AddComplaintParamDto paramDto);
+
+    List<GetComplaintDto> getComplaint(int userId);
 }

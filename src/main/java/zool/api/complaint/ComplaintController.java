@@ -1,21 +1,14 @@
 package zool.api.complaint;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 import zool.domain.dto.complaint.AddComplaintParamDto;
-import zool.service.complaint.impl.ComplaintImpl;
+import zool.service.complaint.ComplaintService;
 import zool.utils.RD;
-
-import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -28,16 +21,21 @@ import java.util.Map;
 public class ComplaintController {
 
     @Autowired
-    ComplaintImpl complaint;
+    ComplaintService complaint;
 
     /**
      * 添加旺旺投诉单
      * @return
      */
     @RequestMapping("/add")
-    @Transactional(rollbackFor = Exception.class)
-    public RD addComplaint(@Validated AddComplaintParamDto paramDto, BindingResult bindingResult){
+    @Transactional(rollbackFor = IllegalArgumentException.class)
+    public RD addComplaint(@Validated AddComplaintParamDto paramDto, BindingResult bindingResult) {
 
+        complaint.addComplaint(paramDto);
+
+        if(complaint.getComplaint(1210).size()>0){
+            throw new IllegalArgumentException("数据已存在将回滚");
+        }
         return RD.success(paramDto);
     }
 
