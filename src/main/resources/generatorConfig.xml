@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="true"/>
+        </plugin>
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://192.168.2.8:21532/sixioa"
+                        userId="testuser1"
+                        password="123456X">
+        </jdbcConnection>
+        <!-- 实体创建 -->
+        <javaModelGenerator targetPackage="zool.domain.model.tkmapper" targetProject="src/main/java"/>
+        <!-- xml sql -->
+        <sqlMapGenerator targetPackage="mapper.oapg" targetProject="src/main/resources"/>
+        <!-- mapper -->
+        <javaClientGenerator targetPackage="zool.domain.dao.oapg" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="yy_refund"  domainObjectName="OperateRefund" >
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

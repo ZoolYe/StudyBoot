@@ -29,15 +29,15 @@ public class HttpAspect {
         if(attributes!=null){
             HttpServletRequest request = attributes.getRequest();
             /*URI*/
-            logger.info("url={}",request.getRequestURI());
+            logger.info("Url = {}",request.getRequestURI());
             /*method*/
-            logger.info("method={}",request.getMethod());
+            logger.info("Method = {}",request.getMethod());
             /*ip*/
-            logger.info("ip={}",request.getRemoteAddr());
+            logger.info("IP = {}",request.getRemoteAddr());
             /*类方法*/
-            logger.info("class={} and method name={}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
+            logger.info("Class = {} And Method Name = {}",joinPoint.getSignature().getDeclaringTypeName(),joinPoint.getSignature().getName());
             /*参数*/
-            logger.info("参数={}",joinPoint.getArgs());
+            logger.info("参数 = {}",joinPoint.getArgs());
         }
 
     }
@@ -47,13 +47,13 @@ public class HttpAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (attributes!=null){
             HttpServletRequest request = attributes.getRequest();
-            logger.info("url = {} end of execution",request.getRequestURL());
+            logger.info("Url = {} End Of Execution",request.getRequestURL());
         }
     }
 
     @AfterReturning(returning = "object",pointcut = "log()")
     public void doAfterReturn(Object object){
-        logger.info("respones={}",object.toString());
+        logger.info("Respones = {}",object.toString());
     }
 
 }

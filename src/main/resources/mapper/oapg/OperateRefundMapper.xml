@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zool.domain.dao.oapg.OperateRefundMapper">
+  <resultMap id="BaseResultMap" type="zool.domain.model.tkmapper.OperateRefund">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="contract_type_name" jdbcType="VARCHAR" property="contractTypeName" />
+    <result column="contract_id" jdbcType="VARCHAR" property="contractId" />
+    <result column="refund_money" jdbcType="NUMERIC" property="refundMoney" />
+    <result column="refund_type_name" jdbcType="VARCHAR" property="refundTypeName" />
+    <result column="refund_reason" jdbcType="VARCHAR" property="refundReason" />
+    <result column="report_time" jdbcType="VARCHAR" property="reportTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="class2" jdbcType="INTEGER" property="class2" />
+  </resultMap>
+
+  <update id="updateRefundReasonById">
+    update achievement.yy_refund set refund_reason = #{reason} where id = #{id}
+  </update>
+
+</mapper>

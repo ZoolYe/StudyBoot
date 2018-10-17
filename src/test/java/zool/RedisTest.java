@@ -1,5 +1,6 @@
 package zool;
 
+import org.junit.Test;
 import redis.clients.jedis.Jedis;
 
 public class RedisTest {

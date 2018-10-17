@@ -1,11 +1,12 @@
 package zool;
 
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.YearMonth;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author zoolye
@@ -27,6 +28,7 @@ public class LambdaTest {
         System.out.println(names);
     }
 
+    @Test
     public void test2(){
         List<String> names = new ArrayList<>();
         names.add("zool");
