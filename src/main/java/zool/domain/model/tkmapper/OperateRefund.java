@@ -1,9 +1,18 @@
 package zool.domain.model.tkmapper;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "yy_refund",catalog = "achievement")
 public class OperateRefund {
     @Id

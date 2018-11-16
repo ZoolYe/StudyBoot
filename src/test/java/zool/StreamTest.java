@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
 import sun.java2d.cmm.Profile;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -34,5 +36,6 @@ public class StreamTest {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject("http://www.baidu.com",Profile.class,id);
     }
+
 
 }

@@ -23,8 +23,13 @@ public class TkMapper {
 
     @RequestMapping("/demo")
     public RD tkDemo(){
-        List<OperateRefund> operateRefund = operateRefundMapper.selectAll();
-        return RD.success(operateRefund);
+
+        OperateRefund operateRefund = OperateRefund.builder()
+                .id(123).refundReason("中国有嘻哈吗").build();
+
+        operateRefundMapper.updateByPrimaryKeySelective(operateRefund);
+        operateRefundMapper.selectAll();
+        return RD.success(operateRefundMapper.selectAll());
     }
 
 }

@@ -3,7 +3,10 @@ package zool;
 import org.junit.Test;
 
 import java.time.*;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author : zoolye
@@ -118,6 +121,39 @@ public class TestFunction {
         String s3 = new String("abc");
         System.out.println(s1 == s2);
         System.out.println(s1 == s3);
+    }
+
+    @Test
+    public void test4(){
+
+        LocalDate date1 = LocalDate.now();
+        LocalDate date2 = LocalDate.now().minusMonths(1);
+
+        System.out.println(date1.isAfter(date2));
+
+    }
+
+    @Test
+    public void testFilter(){
+
+        List<String> lines = Arrays.asList("spring", "node", "mkyong");
+
+        List<String> result = lines.stream()
+                .filter(line -> true)
+                .collect(Collectors.toList());
+
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    public void testInteger(){
+
+        Integer a = 3;
+
+        Integer b = new Integer(3);
+
+        System.out.println(a == b);
+
     }
 
 }

@@ -16,7 +16,12 @@ public class ThreadPoolExecutorTest {
     public static void main(String args[]) {
 
         /**
-         * 创建线程池，参数1：核心池的大小，参数2：线程池最大线程数，参数3：表示线程没有任务执行时最多保持多久时间会终止，参数4：keepAliveTime的时间单位，参数5：阻塞队列，用来存储等待执行的任务
+         * 创建线程池，
+         * 参数1：核心池的大小，
+         * 参数2：线程池最大线程数，
+         * 参数3：表示线程没有任务执行时最多保持多久时间会终止，
+         * 参数4：keepAliveTime的时间单位，
+         * 参数5：阻塞队列，用来存储等待执行的任务
          */
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
 

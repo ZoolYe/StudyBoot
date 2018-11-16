@@ -5,16 +5,15 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import zool.aop.DebugInterceptor;
 
 
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter{
 
-    @Override
+    /*@Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new DebugInterceptor()).excludePathPatterns("/sys/**");
-    }
+    }*/
 
     /*public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();

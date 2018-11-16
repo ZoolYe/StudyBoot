@@ -18,19 +18,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <repositories>
-        <repository>
-            <id>sixi</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sixi</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -196,11 +183,11 @@
         </dependency>
 
         <!--添加junit-->
-        <dependency>
+        <!--<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
-        </dependency>
+        </dependency>-->
 
         <!--添加jason的支持-->
         <dependency>
@@ -260,17 +247,22 @@
         </dependency>
 
         <!--添加RabbitMQ消息队列的支持-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>4.1.0</version>
-        </dependency>
+        </dependency>-->
 
         <!-- 添加对通用mapper的支持 -->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
             <version>2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
     </dependencies>

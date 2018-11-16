@@ -1,3 +1,4 @@
+/*
 package zool.aop;
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +13,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+*/
 /**
  * debug输入
  *
  * @Author 艾翔
  * @Date 2017/8/26 15:27
- */
+ *//*
+
 @Slf4j
 public class DebugInterceptor extends HandlerInterceptorAdapter {
 
@@ -70,3 +73,4 @@ public class DebugInterceptor extends HandlerInterceptorAdapter {
         System.out.print(URLDecoder.decode(sb.toString(),"UTF-8"));//url解码
     }
 }
+*/
